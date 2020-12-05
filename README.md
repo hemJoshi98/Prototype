@@ -1,2 +1,3 @@
 # Prototype
-First commit
+
+NDG Static Page UI
