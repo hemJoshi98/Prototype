@@ -4,7 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser'); // importing body parser middleware to parse form content from HTML
 var nodemailer = require('nodemailer'); //importing node mailer
 
-const mailList = 'email@gmail.com, ed.ancerys@ndg-technology.com';
+const mailList = 'lookatemail@gmail.com, ed.ancerys@ndg-technology.com';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
