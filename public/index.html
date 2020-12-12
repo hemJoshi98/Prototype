@@ -150,21 +150,23 @@
         <header>
           <h2>Get in Touch</h2>
         </header>
-        <form method="post" onsubmit="return false">
+        <form method="post" action="/sendemail">
           <div class="field half first">
             <label for="name">Name</label>
-            <input type="text" name="name" id="name" />
+            <input type="text" name="name" id="name" required autofocus />
           </div>
           <div class="field half">
             <label for="email">Email</label>
-            <input type="text" name="email" id="email" />
+            <input type="text" name="email" id="email" required />
           </div>
           <div class="field">
             <label for="message">Message</label>
             <textarea name="message" id="message" rows="6"></textarea>
           </div>
           <ul class="actions">
-            <li><input type="submit" value="Send Message" class="alt" /></li>
+            <li>
+              <input type="submit" value="Send Message" class="alt" required />
+            </li>
           </ul>
         </form>
         <!-- <div class="copyright">

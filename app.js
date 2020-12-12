@@ -38,7 +38,6 @@ html is our form details which we parsed using bodyParser.
     html: `<h1>Contact details</h1>
 <h2> name:${req.body.name} </h2><br>
 <h2> email:${req.body.email} </h2><br>
-<h2> phonenumber:${req.body.phoneNumber} </h2><br>
 <h2> message:${req.body.message} </h2><br>`,
   };
   /*
