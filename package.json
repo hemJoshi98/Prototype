@@ -2,9 +2,9 @@
   "name": "NDG-Technology",
   "version": "1.0.0",
   "description": "NDG App",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node ./app.js"
+    "start": "node ./server.js"
   },
   "author": "Ed Ancerys",
   "license": "ISC",

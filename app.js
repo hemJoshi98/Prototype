@@ -1,18 +1,17 @@
+require('dotenv').config(); // Load Environment Variables from a .env File
 const express = require('express');
 const app = express();
 const path = require('path');
+
 const bodyParser = require('body-parser'); // importing body parser middleware to parse form content from HTML
 const nodemailer = require('nodemailer'); //importing node mailer
-
-const dotenv = require('dotenv'); // Load Environment Variables from a .env File
-dotenv.config();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public'))); // serving our contact form on '/' route
 // route which captures form details and sends it to your personal mail
 
-app.post('/sendEmail', (req, res, next) => {
+app.post('/contact', (req, res, next) => {
   console.log(req.body);
   /*Transport service is used by node mailer to send emails, it takes service and auth object as parameters.
 here we are using gmail as our service
@@ -57,6 +56,6 @@ call back as parameter
   });
 });
 
-const port = 3000;
+const PORT = 3000;
 
-app.listen(port, () => console.log(`Server Started on Port ${port}`));
+app.listen(PORT, () => console.log(`Server Started on Port ${PORT}`));
