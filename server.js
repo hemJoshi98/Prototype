@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const sendMail = require('./mail.js');
 
 // Data parsing
 app.use(
@@ -19,15 +20,17 @@ app.get('/', (req, res) => {
 app.post('/contact', (req, res) => {
   const { name, email, message } = req.body;
   console.log('Data: ', req.body);
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  // res.json({ message: 'Email sent!!!!!' });
 
-  // sendMail(name, email, message, function (err, data) {
-  //   if (err) {
-  //     console.log('ERROR: ', err);
-  //     return res.status(500).json({ message: err.message || 'Internal Error' });
-  //   }
-  //   console.log('Email sent!!!');
-  //   return res.json({ message: 'Email sent!!!!!' });
-  // });
+  sendMail(name, email, message, function (err, data) {
+    if (err) {
+      console.log('ERROR: ', err);
+      return res.status(500).json({ message: err.message || 'Internal Error' });
+    }
+    console.log('Email sent!!!');
+    return res.json({ message: 'Email sent!!!!!' });
+  });
 });
 
 // Server Port

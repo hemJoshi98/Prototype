@@ -11,19 +11,19 @@ const transporter = nodemailer.createTransport({
 
 const sendMail = (name, email, message, cb) => {
   const mailOptions = {
-    from: process.env.EMAIL_NAME, // TODO replace this with your own email
-    to: process.env.EMAIL_LIST, // TODO: the receiver email has to be authorized for the free tier
-    subject: `Contact name: ${name}`,
-    html: `<h4>Contact details</h4>
-    <p> email:${email} </p><br>
-    <p> message:${message} </p><br>`,
+    from: process.env.EMAIL_NAME, //replace with your email
+    to: process.env.MAILING_LIST, //replace with your email
+    subject: `Customer Contact Form`,
+    html: `<h4>Customer Contact Name: ${name}</h4>
+    <p> email: ${email} </p><br>
+    <p> Message: <br>${message} </p><br>`,
   };
 
-  transporter.sendMail(mailOptions, function (err, data) {
+  transporter.sendMail(mailOptions, (err, data) => {
     if (err) {
-      return cb(err, null);
+      return console.log('Error occurs');
     }
-    return cb(null, data);
+    return console.log('Email sent!!!');
   });
 };
 
