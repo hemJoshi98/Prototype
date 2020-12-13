@@ -20,7 +20,8 @@ app.get('/', (req, res) => {
 app.post('/contact', (req, res) => {
   const { name, email, message } = req.body;
   console.log('Data: ', req.body);
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.redirect('/');
+  // res.sendFile(path.join(__dirname, 'public', 'index.html'));
   // res.json({ message: 'Email sent!!!!!' });
 
   sendMail(name, email, message, function (err, data) {
