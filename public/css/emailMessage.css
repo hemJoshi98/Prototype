@@ -1,8 +1,30 @@
 body {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-weight: 100;
-  font-size: 12px;
-  line-height: 30px;
-  color: #777;
-  background: #00bfff;
+  background: #e9eaea;
+}
+
+.hButton {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 2px solid #c8f693;
+}
+
+.hButton:hover {
+  background-color: #c8f693;
+  color: grey;
+}
+
+.center {
+  text-align: center;
+  border: 3px solid grey;
 }
