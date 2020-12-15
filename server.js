@@ -10,9 +10,9 @@ app.use(
   })
 );
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // Global Patch #1
 
-// Email sent page
+// Form submit path/page
 app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'views', 'emailMessage.html'));
 });
@@ -20,12 +20,10 @@ app.get('/contact', (req, res) => {
 // Sending email
 app.post('/contact', (req, res) => {
   const { name, email, message } = req.body;
-  console.log('Data: ', req.body);
-  res.redirect('/contact');
-
-  // res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  console.log('Data: ', req.body.name);
   // res.json({ message: 'Email sent!!!!!' });
 
+  // Calling Mail.js to execute form submit
   sendMail(name, email, message, function (err, data) {
     if (err) {
       console.log('ERROR: ', err);
@@ -34,6 +32,8 @@ app.post('/contact', (req, res) => {
     console.log('Email sent!!!');
     return res.json({ message: 'Email sent!!!!!' });
   });
+
+  res.redirect('/contact');
 });
 
 // Server Port

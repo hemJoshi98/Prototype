@@ -13,9 +13,3 @@
 - Start the server
   `$ npm start` run or nodemon
 - Navigate to [http://localhost:3000](http://localhost:3000) in your browser
-<<<<<<< HEAD
-
-- Test comment!!!!!!!!!
-=======
-- This is a test.
->>>>>>> 6b45cd63dd53fdd2c1d1abfd126e4437bb8a3166
