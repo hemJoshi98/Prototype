@@ -3,6 +3,14 @@ const app = express();
 const path = require('path');
 const sendMail = require('./mail.js');
 
+const bodyParser = require('body-parser');
+app.use(bodyParser);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Global Variables
+let customerName = 'name';
+
 // Data parsing
 app.use(
   express.urlencoded({
@@ -12,9 +20,16 @@ app.use(
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'))); // Global Patch #1
 
+function passCustomerData(req, res, next) {
+  const { name, email, message } = req.body;
+  res.locals.name = name;
+  console.log('passing data ...');
+  next();
+}
+
 function formSubmit(req, res) {
   const { name, email, message } = req.body;
-  console.log('Data: ', req.body.name);
+  console.log('Data: ', name);
   // res.json({ message: 'Email sent!!!!!' });
 
   // Calling Mail.js to execute form submit
@@ -36,7 +51,7 @@ app.get('/contact', (req, res) => {
 });
 
 // From Submit path
-app.post('/contact', formSubmit);
+app.post('/contact', passCustomerData, formSubmit);
 
 // Server Port
 const PORT = 5000;
