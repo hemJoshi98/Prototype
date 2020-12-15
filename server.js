@@ -23,7 +23,7 @@ function formSubmit(req, res) {
 
   // Calling Mail.js to execute form submit
   sendMail(name, email, message, () => {
-    res.render('success.html');
+    res.render('success.html', { data: req.body });
   });
 }
 
