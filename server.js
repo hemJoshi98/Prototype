@@ -12,13 +12,7 @@ app.use(
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'))); // Global Patch #1
 
-// Form submit path/page
-app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'views', 'emailMessage.html'));
-});
-
-// Sending email
-app.post('/contact', (req, res) => {
+function formSubmit(req, res) {
   const { name, email, message } = req.body;
   console.log('Data: ', req.body.name);
   // res.json({ message: 'Email sent!!!!!' });
@@ -34,7 +28,15 @@ app.post('/contact', (req, res) => {
   });
 
   res.redirect('/contact');
+}
+
+// Form submit path/page
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'views', 'emailMessage.html'));
 });
+
+// From Submit path
+app.post('/contact', formSubmit);
 
 // Server Port
 const PORT = 5000;
