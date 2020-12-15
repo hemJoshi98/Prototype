@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendMail = (name, email, message, cb) => {
+const sendMail = (name, email, message, callback) => {
   const mailOptions = {
     from: process.env.EMAIL_NAME, //replace with your email
     to: process.env.MAILING_LIST, //replace with your email
@@ -21,8 +21,10 @@ const sendMail = (name, email, message, cb) => {
 
   transporter.sendMail(mailOptions, (err, data) => {
     if (err) {
+      callback();
       return console.log('Error occurs');
     }
+    callback();
     return console.log('Email sent!!!');
   });
 };

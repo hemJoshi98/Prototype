@@ -1,58 +1,40 @@
 const express = require('express');
-const app = express();
-const path = require('path');
-const sendMail = require('./mail.js');
-
 const bodyParser = require('body-parser');
-app.use(bodyParser);
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+const app = express();
+const sendMail = require('./mail.js');
+require('dotenv').config(); // Load Environment Variables from a .env File
 
-// Global Variables
-let customerName = 'name';
+app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/public/views');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
-// Data parsing
 app.use(
-  express.urlencoded({
-    extended: false,
+  bodyParser.urlencoded({
+    extended: true,
   })
 );
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public'))); // Global Patch #1
+app.use(bodyParser.json());
 
-function passCustomerData(req, res, next) {
-  const { name, email, message } = req.body;
-  res.locals.name = name;
-  console.log('passing data ...');
-  next();
-}
-
+// Submit Form middleware
 function formSubmit(req, res) {
   const { name, email, message } = req.body;
-  console.log('Data: ', name);
-  // res.json({ message: 'Email sent!!!!!' });
+  console.log('Data: ', req.body);
 
   // Calling Mail.js to execute form submit
-  sendMail(name, email, message, function (err, data) {
-    if (err) {
-      console.log('ERROR: ', err);
-      return res.status(500).json({ message: err.message || 'Internal Error' });
-    }
-    console.log('Email sent!!!');
-    return res.json({ message: 'Email sent!!!!!' });
+  sendMail(name, email, message, () => {
+    res.render('success.html');
   });
-
-  res.redirect('/contact');
 }
 
-// Form submit path/page
-app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'views', 'emailMessage.html'));
+// Home Route Path
+app.get('/', function (req, res) {
+  res.render('index.html');
 });
 
-// From Submit path
-app.post('/contact', passCustomerData, formSubmit);
+// From Submit Path
+app.post('/contact', formSubmit);
 
 // Server Port
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server Started on Port ${PORT}`));
