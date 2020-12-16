@@ -1,3 +1,4 @@
+// const api = require('../../api');
 console.log('Loading FreshSales...');
 
 async function asyncCallOne() {
@@ -38,46 +39,10 @@ async function asyncFreshDesk() {
   const res = await fetch(freshDescReq);
   const data = await res.json();
 
-  const TICKET = 0;
+  const TICKET = 1;
 
-  console.log(data[TICKET]);
+  console.log(data);
   console.log(data[TICKET].subject);
   console.log(data[TICKET].type);
   console.log(data[TICKET].updated_at);
 }
-
-function doFetch(ev) {
-  // let url = 'https://localhost/apache/no-browse/sample.json';
-  const API_KEY = 'ndgtechnologylimited';
-  const api = 'jlPlNkcvQ7DRkb6N9tZ';
-  const url = `https://${API_KEY}.freshdesk.com/${api}/v2/tickets`;
-
-  let h = new Headers();
-  h.append('Accept', 'application/json');
-
-  let req = new Request(url, {
-    method: 'POST',
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-    },
-    mode: 'cors',
-  });
-
-  fetch(req)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error('BAD HTTP stuff');
-      }
-    })
-    .then((jsonData) => {
-      console.log(jsonData);
-      p.textContent = JSON.stringify(jsonData, null, 4);
-    })
-    .catch((err) => {
-      console.log('ERROR:', err.message);
-    });
-}
-
-// curl -v -u apikey:X -H "Content-Type: application/json" -X GET 'https://domain.freshdesk.com/api/v2/tickets'
