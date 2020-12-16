@@ -2,17 +2,17 @@ require('dotenv').config(); // Load Environment Variables from a .env File
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
-  service: process.env.EMAIL_SERVICE,
+  service: process.env.EMAIL_SERVICE, // replace with service provider
   auth: {
-    user: process.env.EMAIL_NAME, //replace with your email
-    pass: process.env.EMAIL_PASSWORD, //replace with your password
+    user: process.env.EMAIL_NAME, // replace with your email
+    pass: process.env.EMAIL_PASSWORD, // replace with your password
   },
 });
 
 const sendMail = (name, email, message, callback) => {
   const mailOptions = {
-    from: process.env.EMAIL_NAME, //replace with your email
-    to: process.env.MAILING_LIST, //replace with your email
+    from: process.env.EMAIL_NAME, // replace with your email
+    to: process.env.MAILING_LIST, // replace with your mailing list
     subject: `Customer Contact Form`,
     html: `<h4>Customer Contact Name: ${name}</h4>
     <p> email: ${email} </p><br>
