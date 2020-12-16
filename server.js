@@ -33,9 +33,53 @@ app.get('/', (req, res) => {
   res.render('index.html');
 });
 
+// AboutUs Route Path
+app.get('/aboutus', (req, res) => {
+  res.render('aboutUs.html');
+});
+
 // FreshSales Path
 app.get('/freshsales', (req, res) => {
-  res.render('freshSales.html');
+  const PASSWORD = 'dummyPassword';
+  var API_KEY = 'weUr7kNI1zueQZ66vOcl'; // Test Account
+  const FD_ENDPOINT = 'newaccount1608116901000';
+  // const FD_ENDPOINT = 'ndgtechnologylimited'; // NDG Account
+  // const API_KEY = 'jlPlNkcvQ7DRkb6N9tZ'; // NDG Account
+  let PATH = '/api/v2/tickets';
+  const URL = `https://${FD_ENDPOINT}.freshdesk.com/${PATH}`;
+  const enocoding_method = 'base64';
+  const auth =
+    'Basic ' + new Buffer.from(API_KEY + ':' + 'X').toString(enocoding_method);
+  console.log(auth);
+
+  let freshDesc;
+
+  async function asyncFreshDesk() {
+    console.log('Making a Call To FreshDesc');
+
+    const defaultOptions = {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        Authorization: auth,
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    };
+
+    const freshDescReq = new Request(URL, defaultOptions);
+
+    const res = await fetch(freshDescReq);
+    const freshDesc = await res.json();
+
+    const TICKET = 0;
+
+    console.log(data);
+    console.log(data[TICKET].subject);
+    console.log(data[TICKET].type);
+    console.log(data[TICKET].updated_at);
+  }
+  res.render('freshSales.html', { data: freshDesc });
 });
 
 app.get('/api', (req, res) => {
