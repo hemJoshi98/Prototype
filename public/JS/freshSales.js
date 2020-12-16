@@ -15,7 +15,7 @@ async function asyncFreshDesk() {
 
   console.log('Making a Call To FreshDesc');
 
-  const res = await fetch(`https://${domain}.freshdesk.com/${api}/v2/tickets`);
+  const res = await fetch(`https://${domain}.freshdesk.com/${api}/v2/tickets`, );
   const data = await res.json();
 
   console.log(data);
