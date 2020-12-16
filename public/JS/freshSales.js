@@ -9,26 +9,28 @@ async function asyncCallOne() {
   console.log(data);
 }
 
+const NDG = 'Basic amxQbE5rY3ZRN0RSa2I2Tjl0WjpY';
+const TEST = 'Basic d2VVcjdrTkkxenVlUVo2NnZPY2w6WA==';
+
 async function asyncFreshDesk() {
+  const PASSWORD = 'dummyPassword';
   var API_KEY = 'weUr7kNI1zueQZ66vOcl'; // Test Account
-  const PASSWORD = 'madfuM-8newno-gaqgin';
   const FD_ENDPOINT = 'newaccount1608116901000';
-  // const FD_ENDPOINT = 'ndgtechnologylimited';
-  // const API = 'jlPlNkcvQ7DRkb6N9tZ'; // NDG Account
+  // const FD_ENDPOINT = 'ndgtechnologylimited'; // NDG Account
+  // const API_KEY = 'jlPlNkcvQ7DRkb6N9tZ'; // NDG Account
   let PATH = '/api/v2/tickets';
   const URL = `https://${FD_ENDPOINT}.freshdesk.com/${PATH}`;
 
   console.log('Making a Call To FreshDesc');
 
   const defaultOptions = {
-    method: 'POST',
+    method: 'GET',
+    mode: 'cors',
     headers: {
-      user: API_KEY,
-      pass: PASSWORD,
-      sendImmediately: true,
+      Authorization: TEST,
+      'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
     },
-    mode: 'cors',
   };
 
   const freshDescReq = new Request(URL, defaultOptions);
@@ -36,7 +38,12 @@ async function asyncFreshDesk() {
   const res = await fetch(freshDescReq);
   const data = await res.json();
 
-  console.log(data);
+  const TICKET = 0;
+
+  console.log(data[TICKET]);
+  console.log(data[TICKET].subject);
+  console.log(data[TICKET].type);
+  console.log(data[TICKET].updated_at);
 }
 
 function doFetch(ev) {
@@ -72,3 +79,5 @@ function doFetch(ev) {
       console.log('ERROR:', err.message);
     });
 }
+
+// curl -v -u apikey:X -H "Content-Type: application/json" -X GET 'https://domain.freshdesk.com/api/v2/tickets'
