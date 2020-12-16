@@ -21,7 +21,6 @@ app.use(bodyParser.json());
 function formSubmit(req, res) {
   const { name, email, message } = req.body;
   console.log('Data: ', req.body);
-  console.log(req.query);
 
   // Calling Mail.js to execute form submit
   sendMail(name, email, message, () => {
