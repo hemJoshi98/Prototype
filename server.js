@@ -32,10 +32,21 @@ function formSubmit(req, res) {
 app.get('/', (req, res) => {
   res.render('index.html');
 });
-
 // AboutUs Route Path
 app.get('/aboutus', (req, res) => {
   res.render('aboutus.html');
+});
+// Services Route Path
+app.get('/services', (req, res) => {
+  res.render('services.html');
+});
+// Partners Route Path
+app.get('/partners', (req, res) => {
+  res.render('partners.html');
+});
+// AboutUs Route Path
+app.get('/contactus', (req, res) => {
+  res.render('contactus.html');
 });
 
 // FreshSales Path
