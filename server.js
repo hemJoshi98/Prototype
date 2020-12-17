@@ -94,10 +94,10 @@ app.get('/freshsales', (req, res) => {
   res.render('freshSales.html');
 });
 
-app.get('/api', (req, res) => {
-  console.log(req.body);
+// Contact Route Path
+app.get('/contact', (req, res) => {
+  res.render('aboutus.html');
 });
-
 // Contact From Submit Path
 app.post('/contact', formSubmit);
 
