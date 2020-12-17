@@ -142,26 +142,26 @@ ul.topnav .dropdown:hover > .dropdown-content {
   text-transform: uppercase;
   outline: none;
   top: 655px;
-  right: 860px;
+  /* right: 860px; */
 }
 
 .query{
   position: absolute;
-  height: 100px;
-  width: 100px;
+  height: 30px;
+  /* width: 100px; */
   background-color: #eee;
   border-radius: 50%;
-  top: 290px;
+  top: 320px;
   left: 560px;
 }
 
 .fault{
-    position: absolute;
-  height: 100px;
-  width: 100px;
+  position: absolute;
+  height: 30px;
+  /* width: 100px; */
   background-color: #eee;
   border-radius: 50%;
-  top: 290px;
+  top: 320px;
   left: 635px;
 }
 
