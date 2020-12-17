@@ -142,13 +142,12 @@ ul.topnav .dropdown:hover > .dropdown-content {
   text-transform: uppercase;
   outline: none;
   top: 655px;
-  right: 860px;
+  /* right: 860px; */
 }
 
 .query{
   position: absolute;
-  height: 100px;
-  width: 100px;
+  height: 20px;
   background-color: #eee;
   border-radius: 50%;
   top: 290px;
@@ -157,8 +156,7 @@ ul.topnav .dropdown:hover > .dropdown-content {
 
 .fault{
     position: absolute;
-  height: 100px;
-  width: 100px;
+  height: 20;
   background-color: #eee;
   border-radius: 50%;
   top: 290px;
