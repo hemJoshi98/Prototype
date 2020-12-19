@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const sendMail = require('./mail.js');
-const { restart } = require('nodemon');
 require('dotenv').config(); // Load Environment Variables from a .env File
 
 // Middleware
@@ -28,6 +27,11 @@ function formSubmit(req, res) {
   });
 }
 
+const getFreshDeskData = (res, req, next) => {
+  console.log('Fresh Sales Middleware');
+  next();
+};
+
 // Home Route Path
 app.get('/', (req, res) => {
   res.render('index.html');
@@ -50,46 +54,27 @@ app.get('/contactus', (req, res) => {
 });
 
 // FreshSales Path
-app.get('/freshsales', (req, res) => {
-  // const PASSWORD = 'dummyPassword';
-  // var API_KEY = 'weUr7kNI1zueQZ66vOcl'; // Test Account
-  // const FD_ENDPOINT = 'newaccount1608116901000';
-  // // const FD_ENDPOINT = 'ndgtechnologylimited'; // NDG Account
-  // // const API_KEY = 'jlPlNkcvQ7DRkb6N9tZ'; // NDG Account
-  // let PATH = '/api/v2/tickets';
-  // const URL = `https://${FD_ENDPOINT}.freshdesk.com/${PATH}`;
-  // const enocoding_method = 'base64';
-  // const auth =
-  //   'Basic ' + new Buffer.from(API_KEY + ':' + 'X').toString(enocoding_method);
-  // console.log(auth);
+app.get('/freshsales', getFreshDeskData, (req, res) => {
+  const API = 'Basic d2VVcjdrTkkxenVlUVo2NnZPY2w6WA==';
+  const FD_ENDPOINT = 'newaccount1608116901000';
+  let PATH = '/api/v2/tickets';
+  const URL = `https://${FD_ENDPOINT}.freshdesk.com/${PATH}`;
 
-  // let freshDesc;
+  console.log('Making a Call To FreshDesc');
 
-  // async function asyncFreshDesk() {
-  //   console.log('Making a Call To FreshDesc');
+  const defaultOptions = {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      Authorization: API,
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
+  };
 
-  //   const defaultOptions = {
-  //     method: 'GET',
-  //     mode: 'cors',
-  //     headers: {
-  //       Authorization: auth,
-  //       'Content-Type': 'application/json',
-  //       'Access-Control-Allow-Origin': '*',
-  //     },
-  //   };
-
-  //   const freshDescReq = new Request(URL, defaultOptions);
-
-  //   const res = await fetch(freshDescReq);
-  //   const freshDesc = await res.json();
-
-  //   const TICKET = 0;
-
-  //   console.log(freshDesc);
-  //   console.log(freshDesc[TICKET].subject);
-  //   console.log(freshDesc[TICKET].type);
-  //   console.log(freshDesc[TICKET].updated_at);
-  // }
+  fetch(URL, defaultOptions)
+    .then((res) => res.json())
+    .then((data) => console.log(data));
 
   res.render('freshSales.html');
 });
