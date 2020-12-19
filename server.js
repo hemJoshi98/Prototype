@@ -80,8 +80,8 @@ app.get('/freshsales', getFreshDeskData, (req, res) => {
   fetch(URL, defaultOptions)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-      res.render('error.html');
+      console.log('Loading FreshSDesk Data: ', data[0].subject);
+      res.render('freshSales.html', { data: data });
     })
     .catch((error) => {
       console.log(error.message);
