@@ -7,7 +7,7 @@
     <title>Fluid One</title>
   </head>
   <body>
-    <h1>Fluid One</h1>
+    <h1 id="title">Fluid One</h1>
     <button
       onclick="location.reload()"
       style="
@@ -18,15 +18,18 @@
     >
       Reload
     </button>
-    <button
-      onclick="asyncFreshDesk()"
-      style="
-        font-size: large;
-        background-color: rgba(0, 128, 255, 0.6);
-        margin: 20px;
-      "
-    >
-      Fetch FreshDesk
-    </button>
+    <button id="test">Test Btn</button>
+
+    <form id="fluidForm" action="/signup" method="post">
+      <h3>Post Code</h3>
+      <input name="postCode" type="text" class="postCode" />
+      <p class="postCodeError"></p>
+
+      <h3>Email</h3>
+      <input name="email" type="text" class="email" />
+      <p class="emailError"></p>
+
+      <button id="btn" type="submit">Submit Form</button>
+    </form>
   </body>
 </html>
