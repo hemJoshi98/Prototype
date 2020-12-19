@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const fetch = require('node-fetch');
 const app = express();
 const sendMail = require('./mail.js');
 require('dotenv').config(); // Load Environment Variables from a .env File
@@ -55,10 +56,14 @@ app.get('/contactus', (req, res) => {
 
 // FreshSales Path
 app.get('/freshsales', getFreshDeskData, (req, res) => {
-  const API = 'Basic d2VVcjdrTkkxenVlUVo2NnZPY2w6WA==';
+  const API_KEY = 'weUr7kNI1zueQZ66vOcl';
   const FD_ENDPOINT = 'newaccount1608116901000';
+
   let PATH = '/api/v2/tickets';
   const URL = `https://${FD_ENDPOINT}.freshdesk.com/${PATH}`;
+  const ENCODING_METHOD = 'base64';
+  const AUTHORIZATION_KEY =
+    'Basic ' + new Buffer.from(API_KEY + ':' + 'X').toString(ENCODING_METHOD);
 
   console.log('Making a Call To FreshDesc');
 
@@ -66,7 +71,7 @@ app.get('/freshsales', getFreshDeskData, (req, res) => {
     method: 'GET',
     mode: 'cors',
     headers: {
-      Authorization: API,
+      Authorization: AUTHORIZATION_KEY,
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
     },
@@ -74,9 +79,14 @@ app.get('/freshsales', getFreshDeskData, (req, res) => {
 
   fetch(URL, defaultOptions)
     .then((res) => res.json())
-    .then((data) => console.log(data));
-
-  res.render('freshSales.html');
+    .then((data) => {
+      console.log(data);
+      res.render('error.html');
+    })
+    .catch((error) => {
+      console.log(error.message);
+      res.redirect('error.html');
+    });
 });
 
 // Contact Route Path
@@ -89,3 +99,47 @@ app.post('/contact', formSubmit);
 // Server Port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server Started on Port ${PORT}`));
+
+// app.get('/freshsales', (req, res) => {
+//   // const PASSWORD = 'dummyPassword';
+//   // var API_KEY = 'weUr7kNI1zueQZ66vOcl'; // Test Account
+//   // const FD_ENDPOINT = 'newaccount1608116901000';
+//   // // const FD_ENDPOINT = 'ndgtechnologylimited'; // NDG Account
+//   // // const API_KEY = 'jlPlNkcvQ7DRkb6N9tZ'; // NDG Account
+//   // let PATH = '/api/v2/tickets';
+//   // const URL = `https://${FD_ENDPOINT}.freshdesk.com/${PATH}`;
+//   // const enocoding_method = 'base64';
+//   // const auth =
+//   //   'Basic ' + new Buffer.from(API_KEY + ':' + 'X').toString(enocoding_method);
+//   // console.log(auth);
+
+//   // let freshDesc;
+
+//   // async function asyncFreshDesk() {
+//   //   console.log('Making a Call To FreshDesc');
+
+//   //   const defaultOptions = {
+//   //     method: 'GET',
+//   //     mode: 'cors',
+//   //     headers: {
+//   //       Authorization: auth,
+//   //       'Content-Type': 'application/json',
+//   //       'Access-Control-Allow-Origin': '*',
+//   //     },
+//   //   };
+
+//   //   const freshDescReq = new Request(URL, defaultOptions);
+
+//   //   const res = await fetch(freshDescReq);
+//   //   const freshDesc = await res.json();
+
+//   //   const TICKET = 0;
+
+//   //   console.log(freshDesc);
+//   //   console.log(freshDesc[TICKET].subject);
+//   //   console.log(freshDesc[TICKET].type);
+//   //   console.log(freshDesc[TICKET].updated_at);
+//   // }
+
+//   res.render('freshSales.html');
+// });
