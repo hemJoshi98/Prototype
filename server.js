@@ -58,6 +58,10 @@ app.get('/partners', (req, res) => {
 app.get('/contactus', (req, res) => {
   res.render('contactus.html');
 });
+// FluidOne Route Path
+app.get('/fluidOne', (req, res) => {
+  res.render('fluidOne.html');
+});
 
 // FreshSales Path
 app.get('/freshsales', getFreshDeskData, (req, res) => {
