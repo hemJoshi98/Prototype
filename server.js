@@ -65,8 +65,12 @@ app.get('/fluidOne', (req, res) => {
 
 // FreshSales Path
 app.get('/freshsales', getFreshDeskData, (req, res) => {
-  const API_KEY = 'weUr7kNI1zueQZ66vOcl';
-  const FD_ENDPOINT = 'newaccount1608116901000';
+  // Testing Account
+  // const API_KEY = 'weUr7kNI1zueQZ66vOcl';
+  // const FD_ENDPOINT = 'newaccount1608116901000';
+  // NDG Account
+  const API_KEY = 'jlPINkcvQ7DRkb6N9tZ';
+  const FD_ENDPOINT = 'ndgtechnologylimited';
 
   let PATH = '/api/v2/tickets';
   const URL = `https://${FD_ENDPOINT}.freshdesk.com/${PATH}`;
@@ -89,7 +93,7 @@ app.get('/freshsales', getFreshDeskData, (req, res) => {
   fetch(URL, defaultOptions)
     .then((res) => res.json())
     .then((data) => {
-      console.log('Loading FreshSDesk Data: ', data[0].subject);
+      console.log('Loading FreshSDesk Data: ', data);
       res.render('freshSales.html', { data: data });
     })
     .catch((error) => {
@@ -106,10 +110,11 @@ app.get('/contact', (req, res) => {
 app.post('/contact', formSubmit);
 
 // Fluid One
-app.get('/getQuotes', function (req, res) {
+app.post('/getQuotes', function (req, res) {
+  // const postCode = req.body.postCode;
   const postCode = 'SW1A0AA';
   const addressId = '80/20';
-  const speed = req.query.speed;
+  const speed = '10';
 
   console.log(postCode);
   console.log(addressId);
@@ -225,14 +230,52 @@ app.get('/getQuotes', function (req, res) {
                     talkTalk: talkTalkBody,
                     cityFibre: cityFibreBody,
                   };
-                  console.log(finalResponse);
+                  // console.log(finalResponse);
                   res.status(200).json(finalResponse);
+                  console.log(postCode);
+                  // res.status(200).render('fluidOne.html');
                 }
               );
             }
           );
         }
       );
+    }
+  );
+});
+
+app.get('/getAddresses', function (req, res) {
+  // var postCode = req.query.postCode;
+  const postCode = 'SW1A0AA';
+  const username = req.query.username;
+  console.log(postCode);
+  console.log(username);
+
+  var hash = sha512(
+    '/leasedline/address_results/' + postCode + '16-CHECK-form-CAKE-25'
+  );
+
+  request(
+    {
+      url: 'https://api.interdns.co.uk/leasedline/address_results/' + postCode,
+      headers: {
+        User: 'ndgsuper',
+        Hash: hash,
+        Encryption: 'SHA-512',
+      },
+    },
+    function (error, response, body) {
+      body.status = response.statusCode;
+
+      console.log('success!');
+
+      if (error) {
+        console.log(error);
+        res.status(500).end();
+      } else {
+        console.log(response.body);
+        res.status(200).json(body);
+      }
     }
   );
 });

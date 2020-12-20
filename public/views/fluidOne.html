@@ -18,9 +18,20 @@
     >
       Reload
     </button>
-    <button id="test">Test Btn</button>
+    <form method="get" action="/fluidOne">
+      <button
+        type="submit"
+        style="
+          font-size: large;
+          background-color: rgba(140, 255, 0, 0.6);
+          margin: 20px;
+        "
+      >
+        Got To FluidOne
+      </button>
+    </form>
 
-    <form id="fluidForm" action="/signup" method="post">
+    <form id="fluidForm" action="/getQuotes" method="post">
       <h3>Post Code</h3>
       <input name="postCode" type="text" class="postCode" />
       <p class="postCodeError"></p>
