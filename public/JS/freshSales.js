@@ -1,9 +1,10 @@
 console.log('Loading FreshSales...');
 
 async function asyncFreshDesk() {
-  // const TOKEN = 'Basic amxQbE5rY3ZRN0RSa2I2Tjl0WjpY'; // DG Account
-  const TOKEN = 'Basic d2VVcjdrTkkxenVlUVo2NnZPY2w6WA==';
-  const FD_ENDPOINT = 'newaccount1608116901000';
+  // const TOKEN = 'Basic d2VVcjdrTkkxenVlUVo2NnZPY2w6WA==';
+  // const FD_ENDPOINT = 'newaccount1608116901000';
+  const TOKEN = 'Basic amxQSU5rY3ZRN0RSa2I2Tjl0WjpY'; // NDG Account
+  const FD_ENDPOINT = 'ndgtechnologylimited'; // NDG Account
   let PATH = '/api/v2/tickets';
   const URL = `https://${FD_ENDPOINT}.freshdesk.com/${PATH}`;
 
