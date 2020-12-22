@@ -32,3 +32,21 @@ async function asyncFreshDesk() {
   console.log(data[TICKET].type);
   console.log(data[TICKET].updated_at);
 }
+
+const fluidOne = document.querySelector('#createTicket');
+fluidOne.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const postCode = document.querySelector('.postCode').value;
+  const email = document.querySelector('.email').value;
+  console.log(postCode);
+  console.log(email);
+
+  const form = e.target;
+  // error handling
+  if (postCode == '' || email == '') {
+    console.log('Form Error');
+  } else {
+    console.log('Form Submitted');
+    form.submit();
+  }
+});
