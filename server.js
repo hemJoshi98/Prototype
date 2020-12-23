@@ -38,6 +38,11 @@ const getFreshDeskData = (res, req, next) => {
   next();
 };
 
+const createFreshSaleTicket = (res, req, next) => {
+  console.log('createTicketMiddleware');
+  next();
+};
+
 // Home Route Path
 app.get('/', (req, res) => {
   res.render('index.html');
@@ -66,11 +71,11 @@ app.get('/fluidOne', (req, res) => {
 // FreshSales Path
 app.get('/freshsales', getFreshDeskData, (req, res) => {
   // Testing Account
-  // const API_KEY = 'weUr7kNI1zueQZ66vOcl';
-  // const FD_ENDPOINT = 'newaccount1608116901000';
+  const API_KEY = 'weUr7kNI1zueQZ66vOcl';
+  const FD_ENDPOINT = 'newaccount1608116901000';
   // NDG Account
-  const API_KEY = 'jlPINkcvQ7DRkb6N9tZ';
-  const FD_ENDPOINT = 'ndgtechnologylimited';
+  // const API_KEY = 'jlPINkcvQ7DRkb6N9tZ';
+  // const FD_ENDPOINT = 'ndgtechnologylimited';
 
   let PATH = '/api/v2/tickets';
   const URL = `https://${FD_ENDPOINT}.freshdesk.com/${PATH}`;
@@ -101,13 +106,54 @@ app.get('/freshsales', getFreshDeskData, (req, res) => {
       res.redirect('error.html');
     });
 });
+// Create FreshSale Ticket
+app.post('/createFreshSaleTicket', createFreshSaleTicket, (req, res) => {
+  console.log('createFreshSaleTicket');
+  // Testing Account
+  const API_KEY = 'weUr7kNI1zueQZ66vOcl';
+  const FD_ENDPOINT = 'newaccount1608116901000';
+  // NDG Account
+  // const API_KEY = 'jlPINkcvQ7DRkb6N9tZ';
+  // const FD_ENDPOINT = 'ndgtechnologylimited';
+
+  let PATH = '/api/v2/tickets';
+  const URL = `https://${FD_ENDPOINT}.freshdesk.com/${PATH}`;
+  const ENCODING_METHOD = 'base64';
+  const AUTHORIZATION_KEY =
+    'Basic ' + new Buffer.from(API_KEY + ':' + 'X').toString(ENCODING_METHOD);
+
+  console.log('Making a Call To FreshDesc');
+
+  const defaultOptions = {
+    body:
+      '{ "description": "Details about the issue...", "subject": "Support Needed...", "email": "tom@outerspace.com", "priority": 1, "status": 2, "cc_emails": ["ram@freshdesk.com","diana@freshdesk.com"] }',
+    headers: {
+      Authorization: AUTHORIZATION_KEY,
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  };
+
+  fetch(URL, defaultOptions)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log('Loading FreshSDesk Data: ', data);
+      res.render('freshSales.html', { data: data });
+    })
+    .catch((error) => {
+      console.log(error.message);
+      res.redirect('error.html');
+    });
+});
 
 // Contact Route Path
 app.get('/contact', (req, res) => {
   res.render('aboutus.html');
 });
 // Contact From Submit Path
-app.post('/contact', formSubmit);
+app.post('/contact', formSubmit, (req, res) => {
+  res.render('fluidOne.html');
+});
 
 // Fluid One
 
