@@ -34,17 +34,29 @@
       <p>To Emails: <%= data[0].to_emails %></p>
 
       <hr class="dashed" style="margin-top: 20px; margin-bottom: 20px" />
-
+      <h2>Raise Ticket</h2>
       <form id="createTicket" action="/createFreshSaleTicket" method="post">
-        <h3>Post Code</h3>
-        <input name="postCode" type="text" class="postCode" />
-        <p class="postCodeError"></p>
-
-        <h3>Email</h3>
-        <input name="email" type="text" class="email" />
-        <p class="emailError"></p>
-
-        <button id="btn" type="submit">Submit Form</button>
+        <input placeholder="Name" name="name" type="text" class="name" />
+        <p class="name"></p>
+        <input
+          placeholder="Subject"
+          name="subject"
+          type="text"
+          class="subject"
+        />
+        <p class="subject"></p>
+        <input placeholder="email" name="email" type="text" class="email" />
+        <p class="email"></p>
+        <textarea
+          placeholder="Description"
+          name="description"
+          type="text"
+          class="description"
+          rows="8"
+          cols="50"
+        ></textarea>
+        <p class="subject"></p>
+        <button id="btn" type="submit">Submit Ticket</button>
       </form>
 
       <hr class="dashed" style="margin-top: 20px; margin-bottom: 20px" />

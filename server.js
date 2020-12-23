@@ -121,12 +121,13 @@ app.post('/createFreshSaleTicket', createFreshSaleTicket, (req, res) => {
   const ENCODING_METHOD = 'base64';
   const AUTHORIZATION_KEY =
     'Basic ' + new Buffer.from(API_KEY + ':' + 'X').toString(ENCODING_METHOD);
+  const { name, subject, email, description } = req.body;
 
   console.log('Making a Call To FreshDesc');
+  console.log(name, subject, email, description);
 
   const defaultOptions = {
-    body:
-      '{ "description": "Details about the issue...", "subject": "Support Needed...", "email": "tom@outerspace.com", "priority": 1, "status": 2, "cc_emails": ["ram@freshdesk.com","diana@freshdesk.com"] }',
+    body: `{ "name": ${name}, "description": ${description}, "subject": ${subject}, "email": ${email}, "priority": 1, "status": 2, "cc_emails": ["ccEmail01@freshdesk.com","ccEmail02@freshdesk.com"] }`,
     headers: {
       Authorization: AUTHORIZATION_KEY,
       'Content-Type': 'application/json',
@@ -134,16 +135,16 @@ app.post('/createFreshSaleTicket', createFreshSaleTicket, (req, res) => {
     method: 'POST',
   };
 
-  fetch(URL, defaultOptions)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log('Loading FreshSDesk Data: ', data);
-      res.render('freshSales.html', { data: data });
-    })
-    .catch((error) => {
-      console.log(error.message);
-      res.redirect('error.html');
-    });
+  // fetch(URL, defaultOptions)
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log('Loading FreshSDesk Data: ', data);
+  //     res.render('redirectPage.html', { data: data });
+  //   })
+  //   .catch((error) => {
+  //     console.log(error.message);
+  //     res.redirect('error.html');
+  //   });
 });
 
 // Contact Route Path

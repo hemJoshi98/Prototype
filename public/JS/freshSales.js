@@ -36,14 +36,14 @@ async function asyncFreshDesk() {
 const fluidOne = document.querySelector('#createTicket');
 fluidOne.addEventListener('submit', (e) => {
   e.preventDefault();
-  const postCode = document.querySelector('.postCode').value;
+  const name = document.querySelector('.name').value;
+  const subject = document.querySelector('.subject').value;
   const email = document.querySelector('.email').value;
-  console.log(postCode);
-  console.log(email);
+  const description = document.querySelector('.description').value;
 
   const form = e.target;
   // error handling
-  if (postCode == '' || email == '') {
+  if (name == '' || subject == '', || email == '', || description == '') {
     console.log('Form Error');
   } else {
     console.log('Form Submitted');
