@@ -7,9 +7,16 @@
     <link rel="icon" href="./images/icon.png" />
     <link rel="stylesheet" href="./css/raiseticket.css" />
     <style media="screen">
-      #main{
+      #main2{
         float:left;
         height:auto;
+        width: 50%;
+      }
+      #new{
+        float: left;
+        height:auto;
+        width: 50%;
+        background-color: rgb(195, 195, 195);
       }
     </style>
     <title>Document</title>
@@ -61,6 +68,7 @@
       </div>
     </header>
     <div id="main">
+    <div id="main2">
       <img class="raise" src="./images/raise_ticket.png" alt="" />
       <input class="query" type="radio" />
       <input class="fault" type="radio" />
@@ -70,7 +78,7 @@
       <input class="rounded roundeddesc" type="text" />
       <button class="button">Send</button>
     </div>
-    <div id="new" style="margin-top: 200px; background-color: rgb(195, 195, 195)">
+    <div id="new">
       <form id="createTicket" action="/createFreshSaleTicket" method="post">
         <input placeholder="Name" name="name" type="text" class="name" />
         <input
@@ -91,5 +99,6 @@
         <button id="btn" type="submit">Submit Ticket</button>
       </form>
     </div>
+  </div>
   </body>
 </html>
