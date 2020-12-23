@@ -127,7 +127,7 @@ app.post('/createFreshSaleTicket', createFreshSaleTicket, (req, res) => {
   console.log(name, subject, email, description);
 
   const defaultOptions = {
-    body: `{ "name": ${name}, "description": ${description}, "subject": ${subject}, "email": ${email}, "priority": 1, "status": 2, "cc_emails": ["ccEmail01@freshdesk.com","ccEmail02@freshdesk.com"] }`,
+    body: `{ "name": "${name}", "description": "${description}", "subject": "${subject}", "email": "${email}", "priority": 1, "status": 2, "cc_emails": ["ccEmail01@freshdesk.com","ccEmail02@freshdesk.com"] }`,
     headers: {
       Authorization: AUTHORIZATION_KEY,
       'Content-Type': 'application/json',
@@ -135,16 +135,16 @@ app.post('/createFreshSaleTicket', createFreshSaleTicket, (req, res) => {
     method: 'POST',
   };
 
-  // fetch(URL, defaultOptions)
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     console.log('Loading FreshSDesk Data: ', data);
-  //     res.render('redirectPage.html', { data: data });
-  //   })
-  //   .catch((error) => {
-  //     console.log(error.message);
-  //     res.redirect('error.html');
-  //   });
+  fetch(URL, defaultOptions)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log('Loading FreshSDesk Data: ', data);
+      res.render('redirectPage.html', { data: data });
+    })
+    .catch((error) => {
+      console.log(error.message);
+      res.redirect('error.html');
+    });
 });
 
 // Contact Route Path
