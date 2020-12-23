@@ -31,6 +31,9 @@ async function asyncFreshDesk() {
   console.log(data[TICKET].subject);
   console.log(data[TICKET].type);
   console.log(data[TICKET].updated_at);
+
+  const dateNow = new Date();
+  console.log(dateNow.toLocaleDateString('en-GB'));
 }
 
 const fluidOne = document.querySelector('#createTicket');
