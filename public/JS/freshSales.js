@@ -43,7 +43,7 @@ fluidOne.addEventListener('submit', (e) => {
 
   const form = e.target;
   // error handling
-  if (name == '' || subject == '', || email == '', || description == '') {
+  if (name == '' || subject == '' || email == '' || description == '') {
     console.log('Form Error');
   } else {
     console.log('Form Submitted');
