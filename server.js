@@ -110,11 +110,11 @@ app.get('/freshsales', getFreshDeskData, (req, res) => {
 app.post('/createFreshSaleTicket', createFreshSaleTicket, (req, res) => {
   console.log('createFreshSaleTicket');
   // Testing Account
-  const API_KEY = 'weUr7kNI1zueQZ66vOcl';
-  const FD_ENDPOINT = 'newaccount1608116901000';
+  // const API_KEY = 'weUr7kNI1zueQZ66vOcl';
+  // const FD_ENDPOINT = 'newaccount1608116901000';
   // NDG Account
-  // const API_KEY = 'jlPINkcvQ7DRkb6N9tZ';
-  // const FD_ENDPOINT = 'ndgtechnologylimited';
+  const API_KEY = 'jlPINkcvQ7DRkb6N9tZ';
+  const FD_ENDPOINT = 'ndgtechnologylimited';
 
   let PATH = '/api/v2/tickets';
   const URL = `https://${FD_ENDPOINT}.freshdesk.com/${PATH}`;
