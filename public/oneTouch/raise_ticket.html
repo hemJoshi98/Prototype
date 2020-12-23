@@ -1,57 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="./images/icon.png">
-    <link rel="stylesheet" href="./css/raiseticket.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="./images/icon.png" />
+    <link rel="stylesheet" href="./css/raiseticket.css" />
+    <style media="screen">
+      #main{
+        float:left;
+        height:auto;
+      }
+    </style>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="container">
-          <a href="./index.html"><img src="./images/color_logo_transparent.png" alt="" class="logo"></a>
-    
-          <nav>
-            <ul class="topnav">
-                <li><a href="./index.html">Home</a></li>
-                <li class="dropdown right"><a class="dropbtn" href="#">Admin</a>
-                  <div class="dropdown-content">
-                    <a class ="change" href="#">Edit Users</a>
-                    <a class ="change" href="#">Add Users</a>
-                    <a class ="change" href="./raise_ticket.html">Create Ticket</a>
-                  </div>
-                </li>
-                <li class="dropdown right"><a class="dropbtn" href="#">Hosted</a>
-                  <div class="dropdown-content">
-                      <a class ="change" href="./voip.html">Order a New Voip Connection </a>
-                      <a class ="change" href="./cloudtouch.html">Cloud Touch</a>
-                    </div>
-                  </li>
-                  <li class="dropdown right"><a class="dropbtn" href="#">Broadband</a>
-                    <div class="dropdown-content">
-                        <a class ="change" href="./order_new_connection.html">Order a New Connection</a>
-                        <a class ="change" href="#">Order Status</a>
-                        <a class ="change" href="#">Connection</a>
-                        <a class ="change" href="./make_a_new_connection.html">Make a Connection</a>
-                      </div>
-                    </li>
-                <li><a href="./support_docs.html">Support Doc's</a></li>
-                <li><a href="./index.html">Log Out</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-          <div>
-              <img class="raise" src="./images/raise_ticket.png" alt="">
-              <input class="query" type="radio" >
-              <input class="fault" type="radio" >
-              <input type="radio" >
-              <input class="rounded" type="text" >
-              <input class="rounded roundednumber" type="text" >
-              <input class="rounded roundeddesc" type="text" >
-              <button class="button">Send</button>
-            </div>
-</body>
+      <div class="container">
+        <a href="./index.html"
+          ><img src="./images/color_logo_transparent.png" alt="" class="logo"
+        /></a>
+
+        <nav>
+          <ul class="topnav">
+            <li><a href="./index.html">Home</a></li>
+            <li class="dropdown right">
+              <a class="dropbtn" href="#">Admin</a>
+              <div class="dropdown-content">
+                <a class="change" href="#">Edit Users</a>
+                <a class="change" href="#">Add Users</a>
+                <a class="change" href="./raise_ticket.html">Create Ticket</a>
+              </div>
+            </li>
+            <li class="dropdown right">
+              <a class="dropbtn" href="#">Hosted</a>
+              <div class="dropdown-content">
+                <a class="change" href="./voip.html"
+                  >Order a New Voip Connection
+                </a>
+                <a class="change" href="./cloudtouch.html">Cloud Touch</a>
+              </div>
+            </li>
+            <li class="dropdown right">
+              <a class="dropbtn" href="#">Broadband</a>
+              <div class="dropdown-content">
+                <a class="change" href="./order_new_connection.html"
+                  >Order a New Connection</a
+                >
+                <a class="change" href="#">Order Status</a>
+                <a class="change" href="#">Connection</a>
+                <a class="change" href="./make_a_new_connection.html"
+                  >Make a Connection</a
+                >
+              </div>
+            </li>
+            <li><a href="./support_docs.html">Support Doc's</a></li>
+            <li><a href="./index.html">Log Out</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="main">
+      <img class="raise" src="./images/raise_ticket.png" alt="" />
+      <input class="query" type="radio" />
+      <input class="fault" type="radio" />
+      <input type="radio" />
+      <input class="rounded" type="text" />
+      <input class="rounded roundednumber" type="text" />
+      <input class="rounded roundeddesc" type="text" />
+      <button class="button">Send</button>
+    </div>
+    <div id="new" style="margin-top: 200px; background-color: rgb(195, 195, 195)">
+      <form id="createTicket" action="/createFreshSaleTicket" method="post">
+        <input placeholder="Name" name="name" type="text" class="name" />
+        <input
+          placeholder="Subject"
+          name="subject"
+          type="text"
+          class="subject"
+        />
+        <input placeholder="email" name="email" type="text" class="email" />
+        <textarea
+          placeholder="Description"
+          name="description"
+          type="text"
+          class="description"
+          rows="8"
+          cols="50"
+        ></textarea>
+        <button id="btn" type="submit">Submit Ticket</button>
+      </form>
+    </div>
+  </body>
 </html>
