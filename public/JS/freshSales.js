@@ -34,6 +34,12 @@ async function asyncFreshDesk() {
 
   const dateNow = new Date();
   console.log(dateNow.toLocaleDateString('en-GB'));
+  console.log(
+    dateNow.getHours(),
+    dateNow.getMinutes(),
+    dateNow.getMinutes(),
+    dateNow.getSeconds()
+  );
 }
 
 const fluidOne = document.querySelector('#createTicket');

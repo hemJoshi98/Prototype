@@ -126,9 +126,10 @@ app.post('/createFreshSaleTicket', createFreshSaleTicket, (req, res) => {
   console.log('Making a Call To FreshDesc');
   const date = new Date();
   const dateNow = date.toLocaleDateString('en-GB');
+  const timeNow = `${date.getHours()}h ${date.getMinutes()}m ${date.getSeconds()}s`;
 
   const defaultOptions = {
-    body: `{ "name": "${name}", "description": "${description} Created at: ${dateNow}", "subject": "${subject}", "email": "${email}", "priority": 1, "status": 2, "cc_emails": ["ccEmail01@freshdesk.com","ccEmail02@freshdesk.com"] }`,
+    body: `{ "name": "${name}", "description": "${description}", "subject": "${subject} Created at: ${dateNow} ${timeNow}", "email": "${email}", "priority": 1, "status": 2, "cc_emails": ["ccEmail01@freshdesk.com","ccEmail02@freshdesk.com"] }`,
     headers: {
       Authorization: AUTHORIZATION_KEY,
       'Content-Type': 'application/json',
