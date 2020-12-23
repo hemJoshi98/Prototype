@@ -129,7 +129,7 @@ app.post('/createFreshSaleTicket', createFreshSaleTicket, (req, res) => {
   const timeNow = `${date.getHours()}h ${date.getMinutes()}m ${date.getSeconds()}s`;
 
   const defaultOptions = {
-    body: `{ "name": "${name}", "description": "${description}", "subject": "${subject} Created at: ${dateNow} ${timeNow}", "email": "${email}", "priority": 1, "status": 2, "cc_emails": ["ccEmail01@freshdesk.com","ccEmail02@freshdesk.com"] }`,
+    body: `{ "name": "${name}", "description": "${description}", "subject": "${subject} Created at: ${dateNow} ${timeNow}", "email": "${email}", "priority": 1, "status": 2, "cc_emails": ["ccEmail01@freshdesk.com","ccEmail02@freshdesk.com"], "custom_fields.cf_date": "${dateNow}", "custom_fields.cf_telephone_number": "07000000000"  }`,
     headers: {
       Authorization: AUTHORIZATION_KEY,
       'Content-Type': 'application/json',
