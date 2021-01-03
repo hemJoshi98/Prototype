@@ -7,18 +7,42 @@
     <link rel="icon" href="./images/icon.png" />
     <link rel="stylesheet" href="./css/raiseticket.css" />
     <style media="screen">
+      #main{
+        padding: 10%;
+      }
       #main2{
         margin: auto;
         float:left;
-        height:auto;
+        height:550px;
         width: 50%;
+
       }
       #new{
         margin: auto;
         float: left;
         height:550px;
         width: 50%;
-        background-color: rgb(195, 195, 195);
+      }
+      #divf{
+        margin-top: 43%;
+        height: 48px;
+        background-color: #6ec5dd;
+        border-bottom-left-radius: 20px 40%;
+        border-bottom-right-radius: 20px 40% ;
+      }
+      .raise{
+        display:block;
+        margin:auto;
+      }
+      #innernew{
+        border-radius: 4%;
+        background-color:#e9e9e9;
+        display:block;
+        margin:auto;
+        width: 80%;
+        height: 550px;
+        left: 500px;
+        top: 150px;
       }
     </style>
     <title>Document</title>
@@ -70,18 +94,21 @@
       </div>
     </header>
     <div id="main">
-    <div id="main2">
-      <img class="raise" src="./images/raise_ticket.png" alt="" />
-      <input class="query" type="radio" />
-      <input class="fault" type="radio" />
-      <input type="radio" />
-      <input class="rounded" type="text" />
-      <input class="rounded roundednumber" type="text" />
-      <input class="rounded roundeddesc" type="text" />
-      <button class="button">Send</button>
-    </div>
-    <div id="new">
-      <form id="createTicket" action="/createFreshSaleTicket" method="post">
+      <div id="main2">
+        <img class="raise" style="float: middle; margin: auto;" src="./images/raise_ticket.png" alt="" />
+        <!-- <input class="query" type="radio" />
+        <input class="fault" type="radio" />
+        <input type="radio" />
+        <input class="rounded" type="text" />
+        <input class="rounded roundednumber" type="text" />
+        <input class="rounded roundeddesc" type="text" />
+        <button class="button">Send</button> -->  
+      </div>
+      <div id="new">
+
+        <div id="innernew">
+
+      <form id="createTicket" style="padding-top:20%;" action="/createFreshSaleTicket" method="post">
         <input placeholder="Name" name="name" type="text" class="name" />
         <input
           placeholder="Subject"
@@ -100,6 +127,14 @@
         ></textarea>
         <button id="btn" type="submit">Submit Ticket</button>
       </form>
+      <footer id="divf" style="color: white; text-align: center;"> 
+      <div style=" padding-top: 3%; color: white; text-align: center; font-size:medium; "> SUBMIT A TICKET</div></footer>
+      <!-- <div id="divf">
+
+      </div> -->
+
+    </div>
+      
     </div>
   </div>
   </body>
