@@ -71,8 +71,8 @@ app.get('/fluidOne', (req, res) => {
 // FreshSales Path
 app.get('/freshsales', getFreshDeskData, (req, res) => {
   // Testing Account
-  const API_KEY = 'weUr7kNI1zueQZ66vOcl';
-  const FD_ENDPOINT = 'newaccount1608116901000';
+  const API_KEY = 'zCC2dkNhoM6WDh8Ie18';
+  const FD_ENDPOINT = 'newaccount1608720366895';
   // NDG Account
   // const API_KEY = 'jlPINkcvQ7DRkb6N9tZ';
   // const FD_ENDPOINT = 'ndgtechnologylimited';
@@ -113,8 +113,8 @@ app.post('/createFreshSaleTicket', createFreshSaleTicket, (req, res) => {
   // const API_KEY = 'weUr7kNI1zueQZ66vOcl';
   // const FD_ENDPOINT = 'newaccount1608116901000';
   // NDG Account
-  const API_KEY = 'jlPINkcvQ7DRkb6N9tZ';
-  const FD_ENDPOINT = 'ndgtechnologylimited';
+  const API_KEY = 'zCC2dkNhoM6WDh8Ie18';
+  const FD_ENDPOINT = 'newaccount1608720366895';
 
   let PATH = '/api/v2/tickets';
   const URL = `https://${FD_ENDPOINT}.freshdesk.com/${PATH}`;
@@ -134,10 +134,7 @@ app.post('/createFreshSaleTicket', createFreshSaleTicket, (req, res) => {
             "subject": "${subject} Created at: ${dateNow} ${timeNow}", 
             "email": "${email}", 
             "priority": 1, "status": 2, 
-            "cc_emails": ["ccEmail01@freshdesk.com","ccEmail02@freshdesk.com"],
-            "custom_fields" : { "cf_date" : "2020-12-12",
-                                "cf_telephone_number": 123456
-                               }
+            "cc_emails": ["ccEmail01@freshdesk.com","ccEmail02@freshdesk.com"]
           }`,
     headers: {
       Authorization: AUTHORIZATION_KEY,
