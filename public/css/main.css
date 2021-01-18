@@ -129,7 +129,7 @@ q:after {
 }
 
 table {
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   border-spacing: 0;
 }
 
@@ -2796,9 +2796,9 @@ table.alt tfoot {
   border-top: 0;
 }
 
-table tbody tr {
+/* table tbody tr {
   border-color: #e5474b;
-}
+} */
 
 table tbody tr:nth-child(2n + 1) {
   background-color: none;
