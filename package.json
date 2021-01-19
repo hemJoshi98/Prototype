@@ -21,6 +21,6 @@
     "js-sha512": "latest"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.7"
   }
 }
