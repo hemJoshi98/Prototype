@@ -95,13 +95,11 @@ ul.topnav .dropdown:hover > .dropdown-content {
   position: relative;
 }
 
-.raise{
+/* .raise{
     width: auto;
     height: 550px;
-    position: relative;
-    left: 500px;
-    top: 150px;
-}
+
+} */
 
 .rounded{
     border-radius: 10px 10px 10px 10px;

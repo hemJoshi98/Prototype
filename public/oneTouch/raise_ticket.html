@@ -54,19 +54,86 @@
         </nav>
       </div>
     </header>
-    <div>
-      <img class="raise" src="./images/raise_ticket.png" alt="" />
-      <input class="query" type="radio" />
-      <input class="fault" type="radio" />
-      <input type="radio" />
-      <input class="rounded" type="text" />
-      <input class="rounded roundednumber" type="text" />
-      <input class="rounded roundeddesc" type="text" />
-      <button class="button">Send</button>
+    <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
+     <div id="main">
+<!--        
+      <div id="main2">
+        <img class="raise" style="float: middle; margin: auto;" src="./images/raise_ticket.png" alt="" />
+         <input class="query" type="radio" />
+        <input class="fault" type="radio" />
+        <input type="radio" />
+        <input class="rounded" type="text" />
+        <input class="rounded roundednumber" type="text" />
+        <input class="rounded roundeddesc" type="text" />
+        <button class="button">Send</button> -->  
+      <!-- </div> -->
+      <div id="new">
+
+        <div id="innernew">
+
+      <form id="createTicket" style="" action="/createFreshSaleTicket" method="post">
+        <div class="question">
+          <input type="text" required/>
+          <label> Name</label>
+        </div>
+        <div class="question">
+          <input type="text" required/>
+          <label>Subject</label>
+        </div>
+        <div class="question">
+          <input type="text" required/>
+          <label>Email Address</label>
+        </div>
+        <br>
+        <div class="question">
+          <label>Description</label>
+          <textarea></textarea>
+        </div>
+        <button style="text-align: center; margin-left: 140px;
+        margin-right: auto; width: 40%;">Submit</button>
+        <br>
+        <br>
+        <br>
+        <header id="divf"> 
+          <div style=" padding-top: 3%; color: white; text-align: center; font-size:medium; font-weight: loght; "> SUBMIT A TICKET</div></header>
+
+      </form>
+
     </div>
-    <div style="margin-top: 200px; background-color: rgb(195, 195, 195)">
-      <form id="createTicket" action="/createFreshSaleTicket" method="post">
-        <input placeholder="Name" name="name" type="text" class="name" />
+      
+    </div>
+      <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
+      <div id="new">
+
+        <div id="innernew">
+
+      <form id="createTicket" style="" action="/createFreshSaleTicket" method="post">
+        <div class="question">
+          <input type="text" required/>
+          <label> Name</label>
+        </div>
+        <div class="question">
+          <input type="text" required/>
+          <label>Subject</label>
+        </div>
+        <div class="question">
+          <input type="text" required/>
+          <label>Email Address</label>
+        </div>
+        <br>
+        <div class="question">
+          <label>Description</label>
+          <textarea></textarea>
+        </div>
+        <button style="text-align: center; margin-left: 140px;
+        margin-right: auto; width: 40%;">Submit</button>
+        <br>
+        <br>
+        <br>
+        <footer id="divf"> 
+          <div style=" padding-top: 3%; color: white; text-align: center; font-size:medium; font-weight: loght; "> SUBMIT A TICKET</div></footer>
+        <!-- <input placeholder="Name" name="name" type="text" class="name" />
+        <br>
         <input
           placeholder="Subject"
           name="subject"
@@ -82,8 +149,17 @@
           rows="8"
           cols="50"
         ></textarea>
-        <button id="btn" type="submit">Submit Ticket</button>
+        <button id="btn" type="submit">Submit Ticket</button> -->
       </form>
+      <!-- <footer id="divf" style=";"> 
+      <div style=" padding-top: 3%; color: white; text-align: center; font-size:medium; "> SUBMIT A TICKET</div></footer> -->
+      <!-- <div id="divf">
+
+      </div> -->
+
     </div>
+      
+    </div>
+  </div>
   </body>
 </html>

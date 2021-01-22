@@ -1,66 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>NDG Prototype</title>
-  <meta charset="utf-8" />
-  <meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, user-scalable=no"
-  />
-  <link rel="stylesheet" href="./css/main.css" />
-  <style media="screen">
-    body{
-      background-color: #000;
-    }
 
-  .logo img{
+<html>
+	<head>
+		<title>About Us</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <style>
+
+      #imagefit{
+        text-align: center;
+      }
+      table tr{
+        border: 0px solid transparent;
+        text-align: center;
+      }
+      #imgfit img{
+        width: 50%;
+        height: 50%;
+
+      }
+      body{
+        background-color:white;
+      }
+    .logo img{
     max-width: 60%;
     max-height: 60%;
     padding-top: 10px;
     padding-right: 50px;
     display: block; /* remove extra space below image */
   }
-  button{
-    background-color: transparent;
-    box-shadow: inset 0 0 0 2px #c8f693;
-    color: #c8f693;
-  }
-  .welcome{
-    text-align: center;
-  }
-  #one{
-    background-color: lightgrey;
-  }
-  #two{
-    background-color: lightgrey;
-  }
-  #three{
-    background-color: lightgrey;
-  }
-  .newbutt{
-    background-color: #c8f693;
-  }
-  .newbutt:hover{
-    background-color: grey;
-  }
   #footer{
     background-color: grey;
     color:c8f693;
-  }
-  .fit2{
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-    /* margin: 0 0 2em 0; */
-    
-  }
-  .fit3{
-    margin-left: auto;
-    margin-right: auto;
-    /* display: flex; */
-    text-align: center;
-    /* margin: 0 0 2em 0; */
   }
   .newP {
     pointer-events: auto;
@@ -86,179 +58,129 @@ p{
 #header:hover {
   opacity: 0.8;
 }
+#main{
+  background-color: white;
+}
+section .inner {
+    max-width: 85em;
 
-  </style>
-</head>
-<body>
-  <!-- Header -->
-  <header id="header">
-    <div class="inner">
-      <a href="index.html" class="logo"><img src="./images/NDGlogo.png" alt="" /></a>
-      <nav id="nav">
-        <a href="index.html">Home</a>
-        <a href="./views/aboutUs.html">About us</a>
-        <a href="./views/services.html">Services</a>
-        <a href="elements.html">Partners</a>
-        <a href="elements.html">Contact us</a>
-        <a href="./views/login.html">Customer portal</a>
-      </nav>
-    </div>
-  </header>
-  <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+}
+    </style>
+	</head>
+	<body>
 
-  <!-- Banner -->
-  <section id="banner">
-    <div class="inner">
-      <ul class="actions">
-        <!-- <li><a href="#" class="button alt">Get Started</a></li> -->
-      </ul>
-    </div>
-  </section>
-
-  <!-- One -->
-  <section id="one">
-    <div class="inner">
-      <header>
-        <h2 class="welcome">Welcome To NDG Technology</h2>
-      </header>
-      <p>
-        NDG Technology's head office is in Oakham,
-        Leicestershire and is one of the most exciting telecoms businesses across the world with our global presence across the UK, 
-        Europe and as far as New Zealand. 
-        Being licensed to deliver fibre broadband to any location allows the perfect complement for connectivity with IP CCTV. 
-      </p>
-      <ul class="actions">
-        <!-- <li><a href="#" class="button alt newbutt">Learn More</a></li> -->
-      </ul>
-    </div>
-  </section>
-
-  <!-- Two -->
-  <section id="two">
-    <div class="inner">
-      <article>
-        <div class="content">
-          <header>
-            <h3 class="fit3">Mobile Phones</h3>
+		<!-- Header -->
+        <header   id="header">
+          <div class="inner">
+            <a href="../index.html" class="logo"><img src="../images/NDGlogo.png" alt="" /></a>
+            <nav id="nav">
+              <a href="../index.html">Home</a>
+              <a href="aboutUs.html">About us</a>
+              <a href="#">Services</a>
+              <a href="elements.html">Partners</a>
+              <a href="elements.html">Contact us</a>
+              <a href="../oneTouch/index.html">Customer portal</a>
+            </nav>
+          </div>
           </header>
-          <div class="image fit">
-            <img src="./images/pic01.jpg" alt="" />
-          </div>
-          <p>
-            <h3 style="text-align:center;white-space:pre-wrap;">Why NDG Technology for business mobiles?</h3>
-            <ul data-rte-list="default">
-              <li>
-                We can provide the UK’s largest Voice Network
-              </li>
-              <li>
-                1 ST and Biggest Data Network
-              </li>
-              <li>
-                We can provide 4G+ providing you data speeds of up to 150mbps
-              </li>
-              <li>
-                Full online account management
-              </li>
-              <li>
-                Trade in old handsets and we shall put your trade-in against your new mobile
-              </li>
-            </ul>
-            <h4 style="text-align:center;white-space:pre-wrap;">To receive a free quotation please contact us on 02475 092481.</h4>
-          </p>
-        </div>
-      </article>
-      <article class="alt">
-        <div class="content">
-          <header>
-            <h3 class="fit3">Unified Communication</h3>
+          <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		<!-- Main -->
+			<section id="main" >
+				<div class="inner">
+					<header style="text-align: center;" class="major special">
+						<h1>Services</h1>
+            <div id="ServiceContent">
+              <table>
+                <tr>
+                  <td>  
+                    <div class="imagefit">
+                    <img src="../images/pic03.jpg" alt="" />
+                    
+
+                  </div>
+                  <button onclick="window.location.href='website.html'">Website</button>
+                  <br>
+                  <br>
+                  <p>Cheap & professional website design services that can bring your business a brand new, 
+                    clean high quality look in just a few clicks. 
+                    A full website starting at £89! With our unbeatable prices email us today for your free personalised quotation. </p>
+                </td>
+                  <td>
+                     <div class="imagefit">
+                    <img src="../images/pic04.jpg" alt="" />
+                  </div>
+                  <button onclick="window.location.href='whitelabel.html'">White label</button>
+                  <br><br>
+                  <p>Are you looking to build your own brand/business ? Then this is the solution for you. Sell all our products, services and support to your end users as you own personal brand. we do all the billing for you without additional costs.</p>
+
+                </td>
+                  <td>
+                    <div class="imagefit">
+                    <img src="../images/pic05.jpg" alt="" />
+                  </div>
+                  <button onclick="window.location.href='cctv.html'">CCTV</button>
+                  <br><br>
+                  <p>From analogue to IP & monitors to mobiles, CCTV has development into one of the largest most effective industries of today. IP CCTV makes security your system more flexible, with the ability to view your home or business wherever you are. Its a simple & easy IP solution that will meet all your security requirements. </p>
+
+                
+                </td>
+                  <td>
+                    <div class="imagefit">
+                      <img src="../images/pic12.jpg" alt="" />
+                    </div>
+                    <button onclick="window.location.href='hpbx.html'">Hosted PBX</button>
+                    <br><br>
+                    <p>No more in-house telephone systems or long term maintenance contract for obsolete equipment. Only pay for extensions that you actually use. Your telephone system will be future proof, self upgrading & simple to use! 
+                      Call now for more information:  02475092481</p>
+
+                  </td>
+                  <td>
+                    <div class="imagefit">
+                      <img src="../images/pic13.jpg" alt="" />
+                    </div>
+                    <button onclick="window.location.href='mobiles.html'">Mobiles</button>
+                    <br><br>
+                    <p>If you're looking for new mobile phones for your business then look no further. NDG are partnered with 02, this means we have a very flexible tariff builder which allows us to attend to your company mobile need's for an outstanding price.
+                      Email us for a quote: Info@ndg-techltd.co.uk</p>
+
+                  </td>
+                  <td>
+                    <div class="imagefit">
+                      <img src="../images/pic14.jpg" alt="" />
+                    </div>
+                    <button onclick="window.location.href='antivirus.html'">Antivirus</button>
+                    <br><br>
+                    <p>Protect your company today with our anti virus software built by professionals to keep you company secure & safe. Any size company, anywhere, we can provide the best services & customer service in the industry.</p>
+
+                  </td>
+
+
+
+
+                </tr>
+              </table>
+            
+             
+              
+              
+            </div>
           </header>
-          <div class="image fit">
-            <img src="./images/pic02.jpg" alt="" />
-          </div>
-          <p>
-            No more in-house telephone system. No long-term maintenance contracts for obsolete equipment.
-            Only pay for extensions that you actually use.
-            It future proofs your telephony, its self-upgrading and simple to use.
-            <li>
-              Full online account management.
-            </li>
-            <li>
-              Trade in old handsets and we shall put your trade-in against your new mobile.
-            </li>
-            <h4 style="text-align:center;white-space:pre-wrap;">To receive a free quotation please contact us on 02475 092481.</h4>
-          </p>
         </div>
-      </article>
-    </div>
-  </section>
+            </section>
+            <!-- <section id="three" >
+                <div class="inner" >
+                  <article>
+                    <div class="content">
+                    
+                    </div>  
+                  </article>  
+                </div>
+            </section> -->
 
-  <!-- Three -->
-  <section id="three" >
-    <div class="inner" >
-      <article>
-        <div class="content">
-          <!-- <span class="icon fa-laptop"></span> -->
-          
-            <h3 class="fit3">Website</h3>
-          
-          <div class="image fit2">
-            <img class="image fit2" src="./images/pic03.jpg" alt="" />
-          </div>
-          <p>
-            Cheap & professional website design services that can bring your business a brand new, 
-            clean high quality look in just a few clicks.
-            A full website starting at £89! 
-            With our unbeatable prices email us today for your free personalised quotation.
-          </p>
-          <ul class="actions fit2">
-            <li style="padding-top: 68px; position: relative;"><a href="#" class="button alt" >Learn More</a></li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <div class="content">
-          <!-- <span class="icon fa-diamond"></span> -->
 
-            <h3 class="fit3">White Label</h3>
-
-            <div class="image fit2">
-              <img class="image fit2" src="./images/pic04.jpg" alt="" />
-            </div>
-          <p>
-            Are you looking to build your own brand/business? 
-            Then this is the solution for you. Sell all our products, 
-            services and support to your end users as you own personal brand. 
-            we do all the billing for you without additional costs.
-
-          </p>
-          <ul class="actions">
-            <li style="padding-top:68px; position: relative;"><a href="#" class="button alt">Learn More</a></li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <div class="content">
-          <!-- <span class="icon fa-laptop"></span> -->
-            <h3 class="fit3">CCTV</h3>
-            <div class="image fit2">
-              <img class="image fit2" src="./images/pic05.jpg" alt="" />
-            </div>
-          <p>
-            From analogue to IP & monitors to mobiles, 
-            CCTV has development into one of the largest most effective industries of today. 
-            IP CCTV makes security your system more flexible, 
-            with the ability to view your home or business wherever you are. 
-            Its a simple & easy IP solution that will meet all your security requirements.
-          </p>
-          <ul class="actions">
-            <li style="padding-top: auto; position: relative;"><a href="#" class="button alt">Learn More</a></li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Footer -->
+    <!-- Footer -->
+    <!-- Footer -->
   <section id="footer">
     <div class="inner">
       <header>
@@ -395,5 +317,5 @@ p{
 <script src="/JS/main.js"></script>
 <script src="/JS/skel.min.js"></script>
 <script src="/JS/util.js"></script> 
-</body>
+  </body>
 </html>

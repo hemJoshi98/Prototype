@@ -98,7 +98,6 @@ ul.topnav .dropdown:hover > .dropdown-content {
 .raise{
     width: auto;
     height: 550px;
-    position: relative;
     left: 500px;
     top: 150px;
 }
