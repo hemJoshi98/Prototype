@@ -1,5 +1,4 @@
 /*
-	Credits Introspect by TEMPLATED
 */
 
 // (function ($) {
